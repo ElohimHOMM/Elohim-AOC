@@ -12,7 +12,6 @@ public class Day02 {
             int me = getNumber(line.strip().toCharArray()[2]);
             int en = getNumber(line.strip().toCharArray()[0]);
             myScore += computePoints(me, en);
-            System.out.println(myScore);
         }
         System.out.println("My score using XYZ as Rock, Paper, Scissors: " + myScore);
     }
@@ -26,7 +25,6 @@ public class Day02 {
             myScore += computePoints(me, en);
         }
         System.out.println("My score using XYZ as Lose, Draw, Win: " + myScore);
-
     }
 
     private static int getNumber(char letter) {
@@ -55,9 +53,9 @@ public class Day02 {
             case 0:
                 return 3 + me;
             case 1:
-                return 6 + me;
-            case 2:
                 return 0 + me;
+            case 2:
+                return 6 + me;
             default:
                 throw new RuntimeException("This should never be able to happen");
         }
@@ -66,7 +64,7 @@ public class Day02 {
     public static void main(String[] args) {
         List<String> input = Parser.readFile("2022", "02");
         partOne(input);
-        //partTwo(input);
+        partTwo(input);
     }
 
 }
