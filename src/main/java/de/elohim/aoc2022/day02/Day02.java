@@ -2,21 +2,28 @@ package de.elohim.aoc2022.day02;
 
 import java.util.List;
 
+import de.elohim.helpers.Outputter;
 import de.elohim.helpers.Parser;
 
 public class Day02 {
+    private static final String name = "Day 2: Rock Paper Scissors";
+
+    public Day02() {
+        List<String> input = Parser.readFile("2022", "02");
+        Outputter.output(name, partOne(input), partTwo(input));
+    }
     
-    private static void partOne(List<String> input) {
+    private String partOne(List<String> input) {
         int myScore = 0;
         for (String line : input) {
             int me = getNumber(line.strip().toCharArray()[2]);
             int en = getNumber(line.strip().toCharArray()[0]);
             myScore += computePoints(me, en);
         }
-        System.out.println("My score using XYZ as Rock, Paper, Scissors: " + myScore);
+        return myScore + "";
     }
 
-    private static void partTwo(List<String> input) {
+    private String partTwo(List<String> input) {
         int myScore = 0;
         for (String line : input) {
             line = line.strip();
@@ -24,10 +31,10 @@ public class Day02 {
             int me = getCorrespondingNumber(en, line.toCharArray()[2]);
             myScore += computePoints(me, en);
         }
-        System.out.println("My score using XYZ as Lose, Draw, Win: " + myScore);
+        return myScore + "";
     }
 
-    private static int getNumber(char letter) {
+    private int getNumber(char letter) {
         if (letter == 'A' || letter == 'X') {
             return 1;
         } else if (letter == 'B' || letter == 'Y') {
@@ -37,7 +44,7 @@ public class Day02 {
         }
     }
 
-    private static int getCorrespondingNumber(int en, char lMe) {
+    private int getCorrespondingNumber(int en, char lMe) {
         if (lMe == 'Y') {
             return en;
         } else if (lMe == 'X') {
@@ -47,7 +54,7 @@ public class Day02 {
         }
     }
 
-    private static int computePoints(int me, int en) {
+    private int computePoints(int me, int en) {
         int computation = (((en - me) % 3) + 3) % 3;
         switch (computation) {
             case 0:
@@ -60,11 +67,4 @@ public class Day02 {
                 throw new RuntimeException("This should never be able to happen");
         }
     }
-
-    public static void main(String[] args) {
-        List<String> input = Parser.readFile("2022", "02");
-        partOne(input);
-        partTwo(input);
-    }
-
 }

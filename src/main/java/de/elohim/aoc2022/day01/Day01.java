@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import de.elohim.helpers.Outputter;
 import de.elohim.helpers.Parser;
 
 public class Day01 {
-    
-    public static void main(String[] args) {
+    private static final String name = "Day 1: Calorie Counting";
+
+    public Day01() {
         List<String> input = Parser.readFile("2022", "01");
         int counter = 0;
         List<Integer> elves = new ArrayList<>();
@@ -25,7 +27,6 @@ public class Day01 {
         Collections.sort(elves, Collections.reverseOrder());
         int threeMost = elves.get(0) + elves.get(1) + elves.get(2);
 
-        System.out.println("The elf with the most calories is carrying " + elves.get(0) + " calories.");
-        System.out.println("The three elves with the most calories are carrying " + threeMost + " calories.");
+        Outputter.output(name, "" + elves.get(0), "" + threeMost);
     }
 }

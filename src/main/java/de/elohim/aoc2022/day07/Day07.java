@@ -5,6 +5,7 @@ import java.util.List;
 import de.elohim.helpers.Parser;
 
 public class Day07 {
+    private static final String name = "Day 7: No Space Left On Device";
     
     private static void partOne(List<String> input) {
 

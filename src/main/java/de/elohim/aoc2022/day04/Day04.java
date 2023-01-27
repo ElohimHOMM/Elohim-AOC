@@ -1,12 +1,19 @@
 package de.elohim.aoc2022.day04;
 
+import de.elohim.helpers.Outputter;
 import de.elohim.helpers.Parser;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Day04 {
+    private static final String name = "Day 4: Camp Cleanup";
 
-    public static void partOne(List<String> input) {
+    public Day04() {
+        List<String> input = Parser.readFile("2022", "04");
+        Outputter.output(name, partOne(input), partTwo(input));
+    }
+
+    public String partOne(List<String> input) {
         AtomicInteger counter = new AtomicInteger();
         input.forEach((string) -> {
             String[] elves = string.split(",");
@@ -16,10 +23,10 @@ public class Day04 {
                 counter.getAndIncrement();
             }
         });
-        System.out.println("Elves with overlap: " + counter);
+        return counter + "";
     }
 
-    public static void partTwo(List<String> input) {
+    public String partTwo(List<String> input) {
         AtomicInteger counter = new AtomicInteger();
         input.forEach((string) -> {
             String[] elves = string.split(",");
@@ -29,12 +36,6 @@ public class Day04 {
                 counter.getAndIncrement();
             }
         });
-        System.out.println("Elves with overlap: " + (1000 - counter.get()));
-    }
-
-    public static void main(String[] args) {
-        List<String> input = Parser.readFile("2022", "04");
-        partOne(input);
-        partTwo(input);
+        return (1000 - counter.get()) + "";
     }
 }

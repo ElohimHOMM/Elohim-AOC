@@ -3,11 +3,18 @@ package de.elohim.aoc2022.day03;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.elohim.helpers.Outputter;
 import de.elohim.helpers.Parser;
 
 public class Day03 {
+    private static final String name = "Day 3: Rucksack Reorganization";
+
+    public Day03() {
+        List<String> input = Parser.readFile("2022", "03");
+        Outputter.output(name, partOne(input), partTwo(input));
+    }
     
-    private static void partOne(List<String> input) {
+    private String partOne(List<String> input) {
         int priorities = 0;
         for (String line : input) {
             line = line.strip();
@@ -16,10 +23,10 @@ public class Day03 {
             String commonLetters = getCommonLetters(compartmentOne, compartmentTwo);
             priorities += getPriority(commonLetters.toCharArray()[0]);
         }
-        System.out.println("Priorities: " + priorities);
+        return priorities + "";
     }
 
-    private static void partTwo(List<String> input) {
+    private String partTwo(List<String> input) {
         int priorities = 0;
         String elfOne = "";
         String elfTwo = "";
@@ -42,10 +49,10 @@ public class Day03 {
             commonLetters = getCommonLetters(elfOne, commonLetters);
             priorities += getPriority(commonLetters.toCharArray()[0]);
         }
-        System.out.println("Badge Priorities: " + priorities);
+        return priorities + "";
     }
 
-    private static String getCommonLetters(String s1, String s2) {
+    private String getCommonLetters(String s1, String s2) {
         List<Character> l1 = new ArrayList<>();
         List<Character> l2 = new ArrayList<>();
         for (Character c : s1.toCharArray()) {
@@ -62,18 +69,12 @@ public class Day03 {
         return ret.toString();
     }
 
-    private static int getPriority(char c) {
+    private int getPriority(char c) {
         int asciiValue = c;
         if (asciiValue < 95) {
             return asciiValue - 38;
         } else {
             return asciiValue - 96;
         }
-    }
-
-    public static void main(String[] args) {
-        List<String> input = Parser.readFile("2022", "03");
-        partOne(input);
-        partTwo(input);
     }
 }
