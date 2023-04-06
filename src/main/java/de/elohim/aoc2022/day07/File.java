@@ -12,4 +12,8 @@ public class File {
         this.name = values[1];
         this.size = Integer.parseInt(values[0]);
     }
+
+    public void printTree(int depth) {
+        System.out.println(" ".repeat(depth) + "- " + name + " (file, size=" + size + ")");
+    }
 }

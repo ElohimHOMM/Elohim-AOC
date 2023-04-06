@@ -19,7 +19,7 @@ public class AOC2022 {
         new Day04();
         new Day05();
         new Day06();
-        // new Day07(); // not done yet
+        new Day07();
         Outputter.endingLines();
     }
 }
