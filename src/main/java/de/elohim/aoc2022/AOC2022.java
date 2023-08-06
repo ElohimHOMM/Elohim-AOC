@@ -7,6 +7,7 @@ import de.elohim.aoc2022.day04.Day04;
 import de.elohim.aoc2022.day05.Day05;
 import de.elohim.aoc2022.day06.Day06;
 import de.elohim.aoc2022.day07.Day07;
+import de.elohim.aoc2022.day08.Day08;
 import de.elohim.helpers.Outputter;
 
 public class AOC2022 {
@@ -20,6 +21,7 @@ public class AOC2022 {
         new Day05();
         new Day06();
         new Day07();
+        new Day08();
         Outputter.endingLines();
     }
 }

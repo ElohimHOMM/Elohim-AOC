@@ -2,7 +2,6 @@ package de.elohim.aoc2022.day07;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
 import lombok.Data;
