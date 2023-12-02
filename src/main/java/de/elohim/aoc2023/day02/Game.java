@@ -25,12 +25,4 @@ public class Game {
     public int getPower() {
         return this.getRedCubes() * this.getGreenCubes() * this.getBlueCubes();
     }
-
-    @Override
-    public String toString() {
-        return  "ID: " + this.getGameId() +
-                ", red: " + this.getRedCubes() +
-                ", green: " + this.getGreenCubes() +
-                ", blue: " + this.getBlueCubes();
-    }
 }
