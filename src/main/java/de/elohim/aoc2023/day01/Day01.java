@@ -57,10 +57,10 @@ public class Day01 {
     }
 
     private String map(String in) {
-            if (in.length() > 1) {
-                return numberMap.get(in);
-            }
-            return in;
+        if (in.length() > 1) {
+            return numberMap.get(in);
+        }
+        return in;
     }
 
     private void initializeMap(Map<String, String> map) {
