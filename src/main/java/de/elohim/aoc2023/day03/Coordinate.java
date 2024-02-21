@@ -10,13 +10,4 @@ import lombok.Setter;
 public class Coordinate {
     int x;
     int y;
-
-    /**
-     * + 1 for now to have rows and columns start at 1 for debugging
-     */
-    @Override
-    public String toString() {
-        return "x: " + (this.getX() + 1) + 
-               " y: " + (this.getY() + 1);
-    }
 }

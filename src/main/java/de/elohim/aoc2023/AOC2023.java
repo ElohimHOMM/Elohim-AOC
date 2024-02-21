@@ -5,6 +5,7 @@ import java.util.Date;
 import de.elohim.aoc2023.day01.Day01;
 import de.elohim.aoc2023.day02.Day02;
 import de.elohim.aoc2023.day03.Day03;
+import de.elohim.aoc2023.day04.Day04;
 import de.elohim.helpers.Outputter;
 
 public class AOC2023 {
@@ -16,6 +17,7 @@ public class AOC2023 {
         new Day01();
         new Day02();
         new Day03();
+        new Day04();
         Outputter.endingLines();
         date = new Date();
         System.out.println(date.getTime() - milis);
