@@ -40,17 +40,20 @@ public class Day04 {
             AtomicInteger hits = new AtomicInteger();
             entry.getValue().scratchedNumbers
                     .forEach(number -> hits.getAndAdd(entry.getValue().winningNumbers.contains(number) ? 1 : 0));
-            int id = entry.getKey();
-            int maxId = Math.min(id + hits.get(), scratchcards.size());
-            while (id <= maxId) {
-                scratchcards.get(id).setAmount(scratchcards.get(id).getAmount() + entry.getValue().getAmount());
-                id++;
+            if (hits.get() >= 1) {
+                int id = entry.getKey() + 1;
+                int maxId = Math.min(id + hits.get() - 1, scratchcards.size());
+                while (id <= maxId) {
+                    scratchcards.get(id).increaseAmount(entry.getValue().getAmount());
+                    id++;
+                }
             }
         }
 
         AtomicInteger totalCards = new AtomicInteger();
         for (var entry : scratchcards.entrySet()) {
             totalCards.addAndGet(entry.getValue().amount);
+            System.out.println(entry.getValue().getAmount());
         }
         return totalCards.get() + "";
     }

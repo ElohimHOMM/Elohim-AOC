@@ -13,4 +13,8 @@ public class Scratchcard {
     List<Integer> winningNumbers;
     List<Integer> scratchedNumbers;
     int amount;
+
+    public void increaseAmount(int increase) {
+        amount += increase;
+    }
 }
