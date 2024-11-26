@@ -53,7 +53,6 @@ public class Day04 {
         AtomicInteger totalCards = new AtomicInteger();
         for (var entry : scratchcards.entrySet()) {
             totalCards.addAndGet(entry.getValue().amount);
-            System.out.println(entry.getValue().getAmount());
         }
         return totalCards.get() + "";
     }
@@ -76,9 +75,4 @@ public class Day04 {
             scratchcards.put(Integer.parseInt(splits[0].strip()), new Scratchcard(winningNumbers, drawnNumbers, 1));
         });
     }
-
-    public static void main(String[] args) {
-        new Day04();
-    }
-
 }

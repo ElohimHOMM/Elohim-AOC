@@ -183,5 +183,4 @@ public class Day03 {
         }
         return ret;
     }
-    
 }

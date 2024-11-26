@@ -1,5 +1,7 @@
 package de.elohim.aoc2022;
 
+import java.util.Date;
+
 import de.elohim.aoc2022.day01.Day01;
 import de.elohim.aoc2022.day02.Day02;
 import de.elohim.aoc2022.day03.Day03;
@@ -13,6 +15,8 @@ import de.elohim.helpers.Outputter;
 public class AOC2022 {
     
     public static void main(String[] args) {
+        Date date = new Date();
+        long milis = date.getTime();
         Outputter.startingLines("2022");
         new Day01();
         new Day02();
@@ -22,6 +26,7 @@ public class AOC2022 {
         new Day06();
         new Day07();
         new Day08();
-        Outputter.endingLines();
+        date = new Date();
+        Outputter.endingLines("" + (date.getTime() - milis));
     }
 }
