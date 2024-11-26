@@ -1,5 +1,6 @@
 package de.elohim.aoc2023.day05;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,5 +19,14 @@ public class AlmanachMap {
 
     public void addEntry(AlmanachMapEntry mapEntry) {
         mapEntries.add(mapEntry);
+    }
+
+    public BigInteger getDestinationByNumber(BigInteger number) {
+        for(AlmanachMapEntry entry : mapEntries) {
+            if (entry.keys(number)) {
+                return entry.revalue(number);
+            }
+        }
+        return number;
     }
 }

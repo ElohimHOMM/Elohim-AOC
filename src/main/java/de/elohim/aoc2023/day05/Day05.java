@@ -1,6 +1,7 @@
 package de.elohim.aoc2023.day05;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.List;
 
 import de.elohim.helpers.Outputter;
@@ -13,15 +14,21 @@ public class Day05 {
 
     public Day05() {
         almanach = generateAlmanach(Parser.readFile("2023", "05"));
-        System.out.println(almanach);
+
         Outputter.output(name, partOne(), partTwo());
     }
 
     private String partOne() {
+        List<BigInteger> correlations = new ArrayList<>();
+        for (BigInteger seed : almanach.getSeeds()) {
+            BigInteger correlation = seed;
+            for (AlmanachMap map : almanach.getAlmanachMaps()) {
+                correlation = map.getDestinationByNumber(correlation);
+            }
+            correlations.add(correlation);
+        }
 
-
-
-        return null;
+        return "" + correlations.stream().min(BigInteger::compareTo).get();
     }
 
     private String partTwo() {
