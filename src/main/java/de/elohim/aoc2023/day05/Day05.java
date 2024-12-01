@@ -31,8 +31,24 @@ public class Day05 {
         return "" + correlations.stream().min(BigInteger::compareTo).get();
     }
 
+    // 
     private String partTwo() {
-        return null;
+        List<BigInteger> correlations = new ArrayList<>();
+        for (int i = 0; i < almanach.getSeeds().size(); i += 2) {
+            System.out.println("Progress: " + i*5 + "%");
+            BigInteger seedOrigin = almanach.getSeeds().get(i);
+            for (BigInteger j = seedOrigin; 
+            j.compareTo(seedOrigin.add(almanach.getSeeds().get(i+1)).subtract(BigInteger.valueOf(1))) == -1; 
+            j = j.add(BigInteger.valueOf(1))) {
+                BigInteger correlation = j;
+                for (AlmanachMap map : almanach.getAlmanachMaps()) {
+                    correlation = map.getDestinationByNumber(correlation);
+                }
+                correlations.add(correlation);
+            }
+        }
+
+        return "" + correlations.stream().min(BigInteger::compareTo).get();
     }
 
     private Almanach generateAlmanach(List<String> input) {
